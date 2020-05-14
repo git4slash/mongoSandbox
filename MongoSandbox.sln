@@ -3,11 +3,36 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.1082
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoSandbox", "MongoSandbox\MongoSandbox.csproj", "{F07747B5-7CA2-4686-8AF1-7347C0D62B2E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoDumpRestoreTestApp", "MongoDumpRestoreDemo\MongoDumpRestoreTestApp.csproj", "{F07747B5-7CA2-4686-8AF1-7347C0D62B2E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoUtiliyProcessWrapper", "MongoUtiliyProcessWrapper\MongoUtiliyProcessWrapper.csproj", "{EA55AF4F-05F6-47EA-9712-CAFA63745C79}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoUtiliyProcessWrapperTests", "MongoUtiliyProcessWrapperTests\MongoUtiliyProcessWrapperTests.csproj", "{92FB815F-78F7-40EB-AE1E-6A9DAF0691D7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POCOLib", "POCO\POCOLib.csproj", "{4F16A0F1-EB39-4E88-B06F-6DB2C8C715EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataSourceLib", "DataSourceLib\DataSourceLib.csproj", "{92F58035-FDF5-4E27-9A94-3803D6108DE4}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4F16A0F1-EB39-4E88-B06F-6DB2C8C715EE} = {4F16A0F1-EB39-4E88-B06F-6DB2C8C715EE}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataSourceLib.MongoDbImpl", "DataSourceLib.MongoDbImpl\DataSourceLib.MongoDbImpl.csproj", "{8E17B577-A41F-4DC5-A7F2-70F0AC15736B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{92F58035-FDF5-4E27-9A94-3803D6108DE4} = {92F58035-FDF5-4E27-9A94-3803D6108DE4}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrafficLigthsController", "TrafficLigthsController\TrafficLigthsController.csproj", "{B03C8EF0-7954-4D77-920E-7D9BE348005F}"
+	ProjectSection(ProjectDependencies) = postProject
+		{92F58035-FDF5-4E27-9A94-3803D6108DE4} = {92F58035-FDF5-4E27-9A94-3803D6108DE4}
+		{8E17B577-A41F-4DC5-A7F2-70F0AC15736B} = {8E17B577-A41F-4DC5-A7F2-70F0AC15736B}
+		{4F16A0F1-EB39-4E88-B06F-6DB2C8C715EE} = {4F16A0F1-EB39-4E88-B06F-6DB2C8C715EE}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrafficLightsApp", "TrafficLightsGUI\TrafficLightsApp.csproj", "{73CB8D81-DC9B-4DE2-B55A-4AEA1C731190}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B03C8EF0-7954-4D77-920E-7D9BE348005F} = {B03C8EF0-7954-4D77-920E-7D9BE348005F}
+		{4F16A0F1-EB39-4E88-B06F-6DB2C8C715EE} = {4F16A0F1-EB39-4E88-B06F-6DB2C8C715EE}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +52,26 @@ Global
 		{92FB815F-78F7-40EB-AE1E-6A9DAF0691D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92FB815F-78F7-40EB-AE1E-6A9DAF0691D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92FB815F-78F7-40EB-AE1E-6A9DAF0691D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F16A0F1-EB39-4E88-B06F-6DB2C8C715EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F16A0F1-EB39-4E88-B06F-6DB2C8C715EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F16A0F1-EB39-4E88-B06F-6DB2C8C715EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F16A0F1-EB39-4E88-B06F-6DB2C8C715EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92F58035-FDF5-4E27-9A94-3803D6108DE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92F58035-FDF5-4E27-9A94-3803D6108DE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92F58035-FDF5-4E27-9A94-3803D6108DE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92F58035-FDF5-4E27-9A94-3803D6108DE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E17B577-A41F-4DC5-A7F2-70F0AC15736B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E17B577-A41F-4DC5-A7F2-70F0AC15736B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E17B577-A41F-4DC5-A7F2-70F0AC15736B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E17B577-A41F-4DC5-A7F2-70F0AC15736B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B03C8EF0-7954-4D77-920E-7D9BE348005F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B03C8EF0-7954-4D77-920E-7D9BE348005F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B03C8EF0-7954-4D77-920E-7D9BE348005F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B03C8EF0-7954-4D77-920E-7D9BE348005F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73CB8D81-DC9B-4DE2-B55A-4AEA1C731190}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73CB8D81-DC9B-4DE2-B55A-4AEA1C731190}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73CB8D81-DC9B-4DE2-B55A-4AEA1C731190}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73CB8D81-DC9B-4DE2-B55A-4AEA1C731190}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

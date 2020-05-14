@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
 
 namespace MongoUtiliyProcessWrapper.MessageParser {
 	public class MongodumpMessageParser : IProcessMessageParser {

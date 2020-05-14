@@ -36,7 +36,7 @@ namespace MongoUtiliyProcessWrapper {
 		/// <inheritdoc/>
 		public Process GetProcess(ProcessStartInfo info = null) {
 			var componentProcess = new Process { StartInfo = info ?? GetProcessStartInfo() };
-			componentProcess.OutputDataReceived += new DataReceivedEventHandler(this.OnProcessMessage);
+			//componentProcess.OutputDataReceived += new DataReceivedEventHandler(this.OnProcessMessage);
 			componentProcess.ErrorDataReceived += new DataReceivedEventHandler(this.OnProcessErrorMessage);
 
 			componentProcess.Start();

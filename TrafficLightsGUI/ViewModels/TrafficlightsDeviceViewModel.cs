@@ -13,22 +13,27 @@ namespace TrafficLightsGUI.ViewModels
 
         protected TrafficlightsDeviceViewModel() {
             this._devicesController = new TrafficLightDevicesController();
-            Devices = this._devicesController.GetAllDevices(d => true);
         }
 
         public static TrafficlightsDeviceViewModel Create() =>
             ViewModelSource.Create(() => new TrafficlightsDeviceViewModel());
 
-        public virtual IQueryable<TrafficLightDevice> Devices { get; set; }
+        public virtual IQueryable<TrafficLightDevice> Devices {
+			get => this._devicesController.GetAllDevices(d => true);
+			set => this._devices = value;
+		}
+
         public virtual TrafficLightDevice SelectedDevice { get; set; }
 
         public void OnSelectedDeviceChanged() => 
             this.RaiseCanExecuteChanged(x => RemoveSelectedDevice());
 
-        public void AddDevice(TrafficLightDevice device) =>
-            this._devicesController.Save(device);
-        public bool CanAddDevice(TrafficLightDevice device) =>
-            device != null && this._devicesController != null;
+		public void AddDevice() {
+			this._devicesController.Save(GeneratorViewModel.GetGeneratedDevice());
+			this.RaisePropertyChanged(x => x.Devices);
+		}
+
+		public bool CanAddDevice() => this._devicesController != null;
 
         public void RemoveSelectedDevice() {
             if (MessageBoxService.ShowMessage("Are you sure?",
@@ -53,5 +58,6 @@ namespace TrafficLightsGUI.ViewModels
         protected virtual IDocumentManagerService DocumentManagerService => null;
 
         private readonly TrafficLightDevicesController _devicesController;
-    }
+		private IQueryable<TrafficLightDevice> _devices;
+	}
 }

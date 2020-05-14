@@ -11,7 +11,7 @@ namespace TrafficLightsGUI {
 		/// </summary>
 		[STAThread]
 		private static void Main() {
-			//fillDevices();
+			fillDevices();
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
 

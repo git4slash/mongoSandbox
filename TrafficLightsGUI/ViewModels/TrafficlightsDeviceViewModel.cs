@@ -30,8 +30,10 @@ namespace TrafficLightsGUI.ViewModels
 
 		public void AddDevice() {
 			this._devicesController.Save(GeneratorViewModel.GetGeneratedDevice());
-			this.RaisePropertyChanged(x => x.Devices);
+			this.NotifyDevicesChanged();
 		}
+
+		public void NotifyDevicesChanged() => this.RaisePropertyChanged(x => x.Devices);
 
 		public bool CanAddDevice() => this._devicesController != null;
 
@@ -42,6 +44,7 @@ namespace TrafficLightsGUI.ViewModels
                                             MessageIcon.Question,
                                             MessageResult.No) == MessageResult.Yes) {
                 this._devicesController.Delete(SelectedDevice);
+				this.NotifyDevicesChanged();
             }
         }
         public bool CanRemoveSelectedDevice() => SelectedDevice != null;
